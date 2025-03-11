@@ -10,14 +10,7 @@ class User(BaseModel):
     password: str
     age: int
 
-fake_db = [
-    {"name" : "John Doe",
-     "password" : "password",
-     "age" : 20,},
-    {"name" : "Jane Doe",
-     "password" : "password",
-     "age" : 29,},
-]
+
 
 async def decode_token(token):
     pass
