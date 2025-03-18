@@ -15,7 +15,7 @@ class DatabaseService:
     def create_database(self) -> None :
         SQLModel.metadata.create_all(self.database_engine)
         
-    def create_user(self, user_name, password) -> User:
+    def create_user(self, user_name, password) -> User :
         session: Session = next(DatabaseService.initialize_session(self.database_engine))
         user: User = User(user_name=user_name,password=password)
         session.add(user)

@@ -1,5 +1,6 @@
 __pycache__
 app/database/.env
+app/utils/.env
 chronos.py
 hash.py
 jwt_test.py
