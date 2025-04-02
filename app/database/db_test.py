@@ -15,13 +15,7 @@ database_url:str = f"postgresql+psycopg://{database_username}:{database_password
 
 conn = DatabaseService(database_url)
 #conn.create_database()
-conn.create_user("John",hash_password("1234"))
+#conn.create_user("John",hash_password("1234"))
+print(conn.get_user(user_name="John",password="1234"))
 
 
-# -app
-#     -database
-#         -db.py
-#    -models
-#    -utils
-#        -utils.py
-# i want to call afunction in utils.py from database.py

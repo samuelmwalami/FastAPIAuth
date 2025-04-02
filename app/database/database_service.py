@@ -1,6 +1,6 @@
 from typing import Any
 from .database_models import User
-from sqlmodel import SQLModel, Session, create_engine
+from sqlmodel import SQLModel, Session, create_engine, select, col
 
 
 class DatabaseService:
@@ -23,3 +23,9 @@ class DatabaseService:
         session.refresh(user)
         print(f"{User.user_name}\n{User.password}")
         return user
+    
+    def get_user(self, user_name:str, password:str) -> Any:
+        session : Session = next(DatabaseService.initialize_session(self.database_engine))
+        user = session.exec(select(User).where(col(User.user_name) == user_name).where(col(User.user_name)==user_name)).one()
+        return user
+        
