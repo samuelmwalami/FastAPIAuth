@@ -11,6 +11,8 @@ database_password: str = os.getenv("PASSWORD")
 database_host:str = os.getenv("HOST") 
 database_port:str = os.getenv("PORT")
 database_name: str = os.getenv("DB_NAME")
+
+"postgresql+psycopg://username:password@host:port/db_name"
 database_url:str = f"postgresql+psycopg://{database_username}:{database_password}@{database_host}:{database_port}/{database_name}"
 
 conn = DatabaseService(database_url)
