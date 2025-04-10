@@ -9,7 +9,19 @@ class DataBaseConfig:
         self.database_host = os.getenv("DB_HOST")
         self.database_port = os.getenv("DB_PORT")
         self.database_name = os.getenv("DB_NAME")
-        self.database_url = f"postgresql+psycopg://{self.database_user_name}:{self.database_password}@{self.database_host}:{self.database_port}/{self.database_name}"
-        
-bss = DataBaseConfig()
-print(bss.database_url)        
+        self.database_url = f"postgresql://{self.database_user_name}:{self.database_password}@{self.database_host}:{self.database_port}/{self.database_name}"
+    
+    # def get_database_url(self):
+    #     return self.database_url
+    
+print(DataBaseConfig().database_url)
+class JwtConfig:
+    def __init__(self):
+        load_dotenv()
+        self.algorithm = os.getenv("ALGORITHM")
+        self.secret = os.getenv("SECRET")
+    
+    def get_algorithm(self):
+        return self.algorithm
+    def get_secret(self):
+        return self.secret
